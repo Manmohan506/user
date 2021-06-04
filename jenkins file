@@ -5,26 +5,18 @@ pipeline{
     }
 
     stages {
-
-        stage('Compile Code') {
-            steps {
-                sh '''
-                mvn compile
-               '''
-            }
+         stage('Download Dependencies') {
+        steps {
+            sh '''
+            npm install
+        '''
         }
+    }
 
-        stage('Make Package') {
-            steps {
-                sh '''
-                mvn package
-               '''
-            }
-        }
         stage('prepare Artifacts') {
             steps {
                 sh '''
-                zip -r users.zip *
+                zip -r user.zip *
                '''
             }
 
@@ -32,7 +24,7 @@ pipeline{
         stage('upload Artifacts') {
             steps {
                 sh '''
-           curl -f -v -u admin:DevOps321 --upload-file users.zip http://172.31.13.99:8081/repository/user/users.zip
+           curl -f -v -u admin:DevOps321 --upload-file user.zip http://172.31.13.99:8081/repository/user/user.zip
           '''
             }
         }
