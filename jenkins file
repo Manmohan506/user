@@ -2,7 +2,7 @@
 
 roboshop (
     COMPONENT                 : 'user',
-    PROJECT_NAME              : "RoboShop",
+    PROJECT_NAME              : "roboShop",
     SLAVE_LABEL               : "NODEJS",
     SKIP_NEXUS_UPLOAD         :  false,
     APP_TYPE                  :  "NODEJS"
